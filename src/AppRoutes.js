@@ -1,8 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 
 import AuxList from './base/components/AuxList';
-import PersonList from './docs/components/person/PersonList';
-import InvoiceList from './docs/components/invoice/InvoiceList';
 import Home from './base/components/Home';
 import Login from './base/components/Login';
 import { useContext } from "react";
@@ -26,8 +24,6 @@ function AppRoutes() {
       <Route path="/country" element={ <AuxList table="country" /> } />
       <Route path="/currency" element={ <AuxList table="currency" /> } />
       <Route path='/session' element={ <Session /> } />
-      <Route path="/person" element={ <PersonList /> } />
-      <Route path="/invoice" element={ <InvoiceList /> } />
     </Routes>
     :
     <Login />

@@ -40,10 +40,6 @@ function Header() {
               session.user_name &&
                 (
                 <>
-                  <NavDropdown title="Documents" id="basic-nav-dropdown">
-                    {showOp('person') && <NavDropdown.Item href="#" to="/person" onClick={handleMenu}>Person</NavDropdown.Item>}
-                    {showOp('invoice') && <NavDropdown.Item href="#" to="/invoice" onClick={handleMenu}>Invoice</NavDropdown.Item>}
-                  </NavDropdown>
                   <NavDropdown title="Admin" id="basic-nav-dropdown">
                     {showOp('role') && <NavDropdown.Item href="#" to="/role" onClick={handleMenu}>Role</NavDropdown.Item>}
                     {showOp('tenant') && <NavDropdown.Item href="#" to="/tenant" onClick={handleMenu}>Tenant</NavDropdown.Item>}
