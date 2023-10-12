@@ -1,11 +1,11 @@
 import Form from 'react-bootstrap/Form';
 
 const FieldSelect = ({
-  itemData,
-  itemFormat,
   accessSubmit,
+  errorMessage,
   handleFieldChange,
-  errorMessage
+  itemData,
+  itemFormat
   }) => {
    return(
     <Form.Control

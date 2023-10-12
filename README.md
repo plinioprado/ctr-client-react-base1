@@ -13,7 +13,6 @@ Scope:
 * Roles
 * Tenants
 * Countries: Base ISO 3166
-* Persons: Through custom PersonList and PersonItem components, but using some Aux features
 
 Connects to the server ctr-server-node-base to provide the data+format responses based in Node and PostgreSQL for faster development, but its MVC model was designed to be applied to any Language and database.
 
@@ -49,6 +48,14 @@ The pair of reusable React components AuxList and AuxItem will handle a given Ta
         }
     }
     ```
+
+The 'type', in this context, will direct to a specific type of Html Field among:
+
+* boolean (select between true and false)
+* password
+* select (the only that will use 'options')
+* serial (numeric serial)
+* text (the default)
 
 A successful Login request will return a Session object containing, among other info, an Access object where the key is each Table name and its value the rights for Create/Read/Update/Delete.
 
