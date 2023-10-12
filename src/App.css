@@ -12,11 +12,19 @@ a:hover {
 
 body {
   height: 100vh;
+  font-size: 14px;
 }
 
 h2 {
-  font-weight: bold;
-  font-size: 1em;
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.2em;
 }
 
 #root {
@@ -115,7 +123,7 @@ main.login .container form {
   display: flex;
 }
 
-.login form {
+.login.container {
   align-items: center;
   width: 120rem;
 }
@@ -158,4 +166,12 @@ td.number {
 
 input.fieldnumber {
   text-align: right;
+}
+
+.text-error {
+  color: red;
+}
+
+.header.row div {
+  font-weight: bold;
 }

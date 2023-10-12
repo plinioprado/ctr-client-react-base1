@@ -22,7 +22,9 @@ function Session() {
           <tbody>
             {
             Object.keys(session)
-              .map(key => (<tr key={key}><td>{key}</td><td>{session[key]}</td></tr>))
+              .map(key => (<tr key={key}><td>{key}</td><td>{
+                typeof session[key] !== 'object' ? session[key] : JSON.stringify(session[key])
+              }</td></tr>))
             }
           </tbody>
         </Table>
