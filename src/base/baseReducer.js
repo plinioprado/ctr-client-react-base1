@@ -12,7 +12,8 @@ export const initialState = {
     alert: {
       variant: null,
       message: null
-    }
+    },
+    selectOptions: {}
   }
 };
 
@@ -24,29 +25,17 @@ const baseReducer = (state, action) => {
         list: action.payload.list,
         format: action.payload.format
       };
+    case 'LIST_CLEAR':
+      return {
+        ...state,
+        list: [],
+        format: {}
+      };
     case 'ITEM_GET':
       return {
         ...state,
         item: action.payload.item,
         format: action.payload.format
-      };
-    case 'ITEM_CREATE':
-      return {
-        ...state,
-        list: state.list.concat([action.payload.item]),
-        item: {}
-      };
-    case 'ITEM_UPDATE':
-      return {
-        ...state,
-        list: state.list
-          .filter(it => {
-            const deletedId = (id) => it.hasOwnProperty('id') && id === state.item.id;
-            const deletedCod = (cod) => it.hasOwnProperty('cod') && cod === state.item.cod;
-            return (state.item && !deletedId(it.id) && ! deletedCod(it.cod))
-          })
-          .concat([action.payload.item]),
-        item: {}
       };
     case 'FIELD_UPDATE':
       return {
