@@ -3,9 +3,9 @@ import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
 import { Button } from 'react-bootstrap';
 
-import { BaseContext } from '../BaseContext';
-import FieldFilter from './field/FieldFilter';
-import FieldFilterValue from './field/FieldFilterValue';
+import { BaseContext } from '../../BaseContext';
+import FieldFilter from '../filter/FieldFilter';
+import FieldFilterValue from '../filter/FieldFilterValue';
 
 import AuxItem from './AuxItem';
 

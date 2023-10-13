@@ -4,12 +4,12 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
 
-import FieldBoolean from './field/FieldBoolean';
-import FieldInteger from './field/FieldInteger';
-import FieldSelect from './field/FieldSelect';
-import FieldSerial from './field/FieldSerial';
-import FieldPassword from './field/FieldPassword';
-import FieldText from './field/FieldText';
+import FieldBoolean from '../field/FieldBoolean';
+import FieldInteger from '../field/FieldInteger';
+import FieldSelect from '../field/FieldSelect';
+import FieldSerial from '../field/FieldSerial';
+import FieldPassword from '../field/FieldPassword';
+import FieldText from '../field/FieldText';
 
 function AuxItemModal({
     accessDelete,

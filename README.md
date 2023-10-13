@@ -13,6 +13,7 @@ Scope:
 * Roles
 * Tenants
 * Countries: Base ISO 3166
+* Currencies: Base ISO 4217
 
 Connects to the server ctr-server-node-base to provide the data+format responses based in Node and PostgreSQL for faster development, but its MVC model was designed to be applied to any Language and database.
 
