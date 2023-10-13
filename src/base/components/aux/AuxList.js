@@ -3,9 +3,9 @@ import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
 import { Button } from 'react-bootstrap';
 
-import { BaseContext } from '../BaseContext';
-import FieldFilter from './field/FieldFilter';
-import FieldFilterValue from './field/FieldFilterValue';
+import { BaseContext } from '../../BaseContext';
+import FieldFilter from '../filter/FieldFilter';
+import FieldFilterValue from '../filter/FieldFilterValue';
 
 import AuxItem from './AuxItem';
 
@@ -113,7 +113,12 @@ function AuxList({ table }) {
       format.type === 'boolean'?
       <td key={format.listPosition}>{item[format.name] ? 'Yes' : 'No'}</td>
       :
-      <td key={format.name}>{item[format.name]}</td>
+      <td
+        key={format.name}
+        className={format.type === 'integer' && 'number'}
+      >
+        {item[format.name]}
+      </td>
     )
   };
 
@@ -174,9 +179,18 @@ function AuxList({ table }) {
               .sort((a, b) => (a[order.field] < b[order.field] ? -1 : 1) * (order.asc ? 1 : -1 ))
               .map((item, index) => (
               <tr key={index}>
-                <td key="cod" onClick={(e) => {e.preventDefault(); handleShowModal(item[primaryFieldName])}}><a href='/#'>{item[primaryFieldName]}</a></td>
+                <td
+                  key="cod"
+                  onClick={(e) => {e.preventDefault(); handleShowModal(item[primaryFieldName])}}
+                >
+                  <a href='/#'>{item[primaryFieldName]}</a>
+                </td>
                 {
-                columnFormat.map((val, ndx) => <ListCell key={ndx} item={item} format={val} />)
+                columnFormat.map((val, ndx) => <ListCell
+                  key={ndx}
+                  item={item}
+                  format={val}
+                />)
                 }
               </tr>))
           }

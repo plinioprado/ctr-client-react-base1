@@ -1,22 +1,21 @@
 import Form from 'react-bootstrap/Form';
 
-const FieldBoolean = ({
+const FieldInteger = ({
     accessSubmit,
     errorMessage,
     handleFieldChange,
     itemData,
     itemFormat
   }) => {
+
   return (<Form.Control
-    as="select"
+    style={{textAlign: 'right'}}
     disabled={!accessSubmit}
-    value={itemData[itemFormat.name]}
+    type="text"
+    defaultValue={itemData[itemFormat.name]}
     onChange={handleFieldChange}
     className={errorMessage && "border-danger"}
-  >
-    <option value="true">Yes</option>
-    <option value="false">No</option>
-  </Form.Control>)
-}
+  />);
+};
 
-export default FieldBoolean;
+export default FieldInteger;

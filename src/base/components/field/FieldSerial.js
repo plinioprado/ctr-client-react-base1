@@ -1,10 +1,10 @@
 import Form from 'react-bootstrap/Form';
 
 const FieldSerial = ({
-    itemData,
-    itemFormat,
+    errorMessage,
     handleFieldChange,
-    errorMessage
+    itemData,
+    itemFormat
   }) => {
   return (<Form.Control
     disabled

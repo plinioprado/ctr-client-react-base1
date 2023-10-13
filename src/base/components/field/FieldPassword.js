@@ -1,11 +1,11 @@
 import Form from 'react-bootstrap/Form';
 
 const FieldPassword = ({
-  itemData,
-  itemFormat,
   accessSubmit,
+  errorMessage,
   handleFieldChange,
-  errorMessage
+  itemData,
+  itemFormat
 }) => {
   return (<Form.Control
       disabled={itemFormat.readonly || !accessSubmit}

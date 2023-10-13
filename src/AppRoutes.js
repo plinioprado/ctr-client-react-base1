@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 
-import AuxList from './base/components/AuxList';
+import AuxList from './base/components/aux/AuxList';
 import Home from './base/components/Home';
 import Login from './base/components/Login';
 import { useContext } from "react";

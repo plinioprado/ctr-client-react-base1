@@ -1,11 +1,11 @@
 import Form from 'react-bootstrap/Form';
 
 const FieldText = ({
-  itemData,
-  itemFormat,
   accessSubmit,
+  errorMessage,
   handleFieldChange,
-  errorMessage
+  itemData,
+  itemFormat
 }) => {
   return <Form.Control
     disabled={itemFormat.readonly || (!itemData.opNew && itemFormat.primaryKey) || !accessSubmit}

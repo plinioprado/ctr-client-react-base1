@@ -4,11 +4,12 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
 
-import FieldBoolean from './field/FieldBoolean';
-import FieldSelect from './field/FieldSelect';
-import FieldSerial from './field/FieldSerial';
-import FieldPassword from './field/FieldPassword';
-import FieldText from './field/FieldText';
+import FieldBoolean from '../field/FieldBoolean';
+import FieldInteger from '../field/FieldInteger';
+import FieldSelect from '../field/FieldSelect';
+import FieldSerial from '../field/FieldSerial';
+import FieldPassword from '../field/FieldPassword';
+import FieldText from '../field/FieldText';
 
 function AuxItemModal({
     accessDelete,
@@ -56,18 +57,8 @@ function AuxItemModal({
                       handleFieldChange={handleFieldChangeBoolean}
                       errorMessage={errorMessages[el.name]}
                     />
-                    :
-                    el.type === 'select' ?
-                    <FieldSelect
-                      accessSubmit={accessSubmit}
-                      itemFormat={el}
-                      itemData={item}
-                      handleFieldChange={handleFieldChange}
-                      errorMessage={errorMessages[el.name]}
-                    />
-                    :
-                    el.type === 'serial' ?
-                    <FieldSerial
+                    : el.type === 'integer' ?
+                    <FieldInteger
                       accessSubmit={accessSubmit}
                       itemFormat={el}
                       itemData={item}
@@ -77,6 +68,23 @@ function AuxItemModal({
                     :
                     el.type === 'password' ?
                     <FieldPassword
+                      accessSubmit={accessSubmit}
+                      itemFormat={el}
+                      itemData={item}
+                      handleFieldChange={handleFieldChange}
+                      errorMessage={errorMessages[el.name]}
+                    />
+                    :
+                    el.type === 'select' ?
+                    <FieldSelect
+                      accessSubmit={accessSubmit}
+                      itemFormat={el}
+                      itemData={item}
+                      handleFieldChange={handleFieldChange}
+                      errorMessage={errorMessages[el.name]}
+                    />
+                    : el.type === 'serial' ?
+                    <FieldSerial
                       accessSubmit={accessSubmit}
                       itemFormat={el}
                       itemData={item}
@@ -107,8 +115,8 @@ function AuxItemModal({
           <Button variant="secondary" onClick={() => handleDelete(item[primaryFieldName])}>Delete</Button>
         }
         {
-        accessSubmit &&
-        <Button variant="primary" onClick={() => handleSubmit(item)}>Submit</Button>
+          accessSubmit &&
+          <Button variant="primary" onClick={() => handleSubmit(item)}>Submit</Button>
         }
       </Modal.Footer>
     </Modal.Dialog>
