@@ -47,9 +47,9 @@ function AuxList({ table }) {
   const columnList = columnFormat
     ?
     columnFormat
-    .filter(it => it.listPosition > 0)
-    .sort((a, b) => a.formmPosition - b.formPosition)
-    .map(it => ({ value: it.name, text: it.label}))
+      .filter(it => it.listPosition > 0)
+      .sort((a, b) => a.formmPosition - b.formPosition)
+      .map(it => ({ value: it.name, text: it.label}))
     :
     [];
 
@@ -115,7 +115,7 @@ function AuxList({ table }) {
       :
       <td
         key={format.name}
-        className={format.type === 'integer' && 'number'}
+        className={format.type === 'integer' ? 'number' : ''}
       >
         {item[format.name]}
       </td>

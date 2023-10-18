@@ -27,6 +27,7 @@ function AuxItemModal({
   }) {
 
   const errorMessages = itemValidate();
+  const hasErrors = Object.keys(errorMessages).length > 0
 
   return (
     <div className="modal show"
@@ -44,8 +45,10 @@ function AuxItemModal({
           <Row className="mb-3">
             {
               fields &&
-              fields.map(el => {
-                return (
+              fields
+                .filter(it => it.formPosition > 0)
+                .sort((a, b) => a.formPosition - b.formPosition)
+                .map(el => (
                   <Form.Group as={Col} md={el.fieldMd} controlId={el.name} key={el.name}>
                   <Form.Label>{el.label}</Form.Label>
                   {
@@ -103,7 +106,7 @@ function AuxItemModal({
                   <Form.Text className="text-error">{errorMessages[el.name]}</Form.Text>
                   </Form.Group>
                   )
-              })
+              )
             }
           </Row>
         </Form>
@@ -116,7 +119,13 @@ function AuxItemModal({
         }
         {
           accessSubmit &&
-          <Button variant="primary" onClick={() => handleSubmit(item)}>Submit</Button>
+          <Button
+            variant="primary"
+            disabled={hasErrors}
+            onClick={() => handleSubmit(item)}
+          >
+            Submit
+          </Button>
         }
       </Modal.Footer>
     </Modal.Dialog>
