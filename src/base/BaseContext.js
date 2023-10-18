@@ -147,12 +147,10 @@ const BaseContextProvider = ({children}) => {
           if (![undefined, true, false].includes(value)) errors[it.name] = 'invalid';
         } else if (it.type === 'number') {
           if (it.required === true && !value) errors[it.name] = 'required';
-        } else if (it.type === 'string') {
+        } else if (['string', 'password', 'email'].includes(it.type)) {
           if (it.required === true && !value.trim()) errors[it.name] = 'required';
           else if (it.minlength && value.trim().length < it.minlength) errors[it.name] = `min ${it.minlength} characters`;
           else if (it.maxlength && value.trim().length > it.maxlength) errors[it.name] =  `max ${it.maxlength} characters`;
-        } else {
-          errors[it.name] = '';
         }
       });
     return errors;
