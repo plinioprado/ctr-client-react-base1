@@ -1,26 +1,37 @@
-import Form from 'react-bootstrap/Form';
+import { Col, Form }from 'react-bootstrap';
 
 const FieldSelect = ({
-  accessSubmit,
-  errorMessage,
-  handleFieldChange,
-  itemData,
-  itemFormat
+    fieldChangeValue,
+    fieldDisabled,
+    fieldError,
+    fieldLabel,
+    fieldMd,
+    fieldName,
+    fieldOptions,
+    fieldValue
   }) => {
+
+  const onChange = (e) => fieldChangeValue(fieldName, e.target.value.trim());
+
    return(
-    <Form.Control
-      as="select"
-      disabled={!accessSubmit}
-      value={itemData[itemFormat.name]}
-      onChange={handleFieldChange}
-      className={errorMessage && "border-danger"}
-    >
-      {
-        itemFormat.options &&
-        itemFormat.options
-          .map(op => (<option key={op.value} value={op.value}>{op.text}</option>))
-      }
-    </Form.Control>);
+    <Form.Group as={Col} md={fieldMd} controlId={fieldName} key={fieldName}>
+      <Form.Label>{fieldLabel}</Form.Label>
+      <Form.Control
+        as="select"
+        disabled={fieldDisabled}
+        value={fieldValue}
+        onChange={onChange}
+        className={fieldError && "border-danger"}
+      >
+        <option key="empty" value=""></option>
+        {
+          fieldOptions && fieldOptions
+            .map(op => (<option key={op.value} value={op.value}>{op.text}</option>))
+        }
+      </Form.Control>
+      <Form.Text className="text-error">{fieldError}</Form.Text>
+    </Form.Group>
+    );
 };
 
 export default FieldSelect;
