@@ -1,5 +1,4 @@
 import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
@@ -50,24 +49,25 @@ function AuxItemModal({
                 .filter(it => it.formPosition > 0)
                 .sort((a, b) => a.formPosition - b.formPosition)
                 .map(el => (
-                  <Form.Group as={Col} md={el.fieldMd} controlId={el.name} key={el.name}>
-                  <Form.Label>{el.label}</Form.Label>
-                  {
-                  el.type === 'boolean' ?
+                    el.type === 'boolean' ?
                     <FieldBoolean
-                      accessSubmit={accessSubmit}
-                      itemFormat={el}
-                      itemData={item}
-                      handleFieldChange={handleFieldChangeBoolean}
-                      errorMessage={errorMessages[el.name]}
+                      fieldChangeValue={handleField}
+                      fieldError={errorMessages[el.name]}
+                      fieldLabel={el.label}
+                      fieldMd={el.fieldMd}
+                      fieldName={el.name}
+                      fieldRequired={el.required}
+                      fieldValue={item[el.name]}
                     />
                     : el.type === 'integer' ?
                     <FieldInteger
-                      accessSubmit={accessSubmit}
-                      itemFormat={el}
-                      itemData={item}
-                      handleFieldChange={handleFieldChange}
-                      errorMessage={errorMessages[el.name]}
+                      fieldChangeValue={handleField}
+                      fieldError={errorMessages[el.name]}
+                      fieldLabel={el.label}
+                      fieldMd={el.fieldMd}
+                      fieldName={el.name}
+                      fieldRequired={el.required}
+                      fieldValue={item[el.name]}
                     />
                     :
                     el.type === 'password' ?
@@ -94,27 +94,23 @@ function AuxItemModal({
                     />
                     : el.type === 'serial' ?
                     <FieldSerial
-                      accessSubmit={accessSubmit}
-                      itemFormat={el}
-                      itemData={item}
-                      handleFieldChange={handleFieldChange}
-                      errorMessage={errorMessages[el.name]}
+                      fieldError={errorMessages[el.name]}
+                      fieldLabel={el.label}
+                      fieldMd={el.fieldMd}
+                      fieldName={el.name}
+                      fieldValue={item[el.name]}
                     />
                     :
                     <FieldText
-                    accessSubmit={accessSubmit}
-                    itemFormat={el}
-                    itemData={item}
-                    handleFieldChange={handleFieldChange}
-                    errorMessage={errorMessages[el.name]}
-                  />
-                  }
-                  <Form.Text className="text-error">{
-                  !['password', 'select'].includes(el.type) ?
-                  errorMessages[el.name] : ''
-                  }</Form.Text>
-                  </Form.Group>
-                  )
+                      fieldChangeValue={handleField}
+                      fieldError={errorMessages[el.name]}
+                      fieldLabel={el.label}
+                      fieldMd={el.fieldMd}
+                      fieldName={el.name}
+                      fieldRequired={el.required}
+                      fieldValue={item[el.name]}
+                    />
+                )
               )
             }
           </Row>

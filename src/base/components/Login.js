@@ -68,6 +68,7 @@ function Login() {
       <Container className='login'>
         <Form>
           <FieldEmail
+            fieldAutoComplete="username"
             fieldChangeValue={fieldChange}
             fieldError={errorMessages.email}
             fieldLabel="Email"

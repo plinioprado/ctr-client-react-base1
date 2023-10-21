@@ -29,6 +29,7 @@ const FieldPassword = ({
       placeholder={fieldPlaceHolder}
       type="password"
       autoComplete="current-password"
+      key={fieldName}
     />
     <Form.Text className="text-error">{fieldError}</Form.Text>
   </Form.Group>

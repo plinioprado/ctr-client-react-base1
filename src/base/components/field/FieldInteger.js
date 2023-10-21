@@ -1,21 +1,41 @@
-import Form from 'react-bootstrap/Form';
+import { Col, Form } from 'react-bootstrap';
 
 const FieldInteger = ({
-    accessSubmit,
-    errorMessage,
-    handleFieldChange,
-    itemData,
-    itemFormat
+    fieldAutoComplete,
+    fieldChangeValue,
+    fieldDisabled,
+    fieldError,
+    fieldLabel,
+    fieldMaxLength,
+    fieldMd,
+    fieldName,
+    fieldPlaceHolder,
+    fieldValue
   }) => {
 
-  return (<Form.Control
-    style={{textAlign: 'right'}}
-    disabled={!accessSubmit}
-    type="text"
-    defaultValue={itemData[itemFormat.name]}
-    onChange={handleFieldChange}
-    className={errorMessage && "border-danger"}
-  />);
+  const onChange = (e) => {
+    const value = e.target.value.trim()
+    fieldChangeValue(fieldName, value);
+  };
+
+  return (
+  <Form.Group as={Col} md={fieldMd} controlId={fieldName} key={fieldName}>
+    <Form.Label>{fieldLabel}</Form.Label>
+    <Form.Control
+      autoComplete={fieldAutoComplete}
+      className={ fieldError && "border-danger"}
+      defaultValue={fieldValue}
+      disabled={fieldDisabled}
+      maxLength={fieldMaxLength}
+      onChange={onChange}
+      placeholder={fieldPlaceHolder}
+      type="text"
+      style={{textAlign: 'right'}}
+      key={fieldName}
+    />
+    <Form.Text className="text-error">{fieldError}</Form.Text>
+  </Form.Group>
+  );
 };
 
 export default FieldInteger;
