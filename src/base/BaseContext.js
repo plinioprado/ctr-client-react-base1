@@ -102,9 +102,9 @@ const BaseContextProvider = ({children}) => {
 
   const submitItem = () => dispatch({ type: 'ITEM_SUBMIT' });
 
-  const login = async (email, pass) => {
+  const login = async (email, pass, tenant) => {
     try {
-      const json = await doRequest(`${config.api.url}login`, 'post', { email, pass });
+      const json = await doRequest(`${config.api.url}login`, 'post', { email, pass, tenant });
       dispatch({ type: 'LOGIN', payload: { session: json.data }});
       return true;
     } catch (err) {
