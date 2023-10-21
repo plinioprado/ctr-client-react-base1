@@ -19,6 +19,7 @@ function AuxItemModal({
     fields,
     itemValidate,
     primaryFieldName,
+    handleField,
     handleFieldChange,
     handleFieldChangeBoolean,
     handleClose,
@@ -26,9 +27,9 @@ function AuxItemModal({
     handleDelete
   }) {
 
+
   const errorMessages = itemValidate();
   const hasErrors = Object.keys(errorMessages).length > 0
-
   return (
     <div className="modal show"
       style={{ display: 'block', position: 'initial' }}
@@ -71,20 +72,25 @@ function AuxItemModal({
                     :
                     el.type === 'password' ?
                     <FieldPassword
-                      accessSubmit={accessSubmit}
-                      itemFormat={el}
-                      itemData={item}
-                      handleFieldChange={handleFieldChange}
-                      errorMessage={errorMessages[el.name]}
+                      fieldChangeValue={handleField}
+                      fieldError={errorMessages[el.name]}
+                      fieldLabel={el.label}
+                      fieldMd={el.fieldMd}
+                      fieldName={el.name}
+                      fieldRequired={el.required}
+                      fieldValue={item[el.name]}
                     />
                     :
                     el.type === 'select' ?
                     <FieldSelect
-                      accessSubmit={accessSubmit}
-                      itemFormat={el}
-                      itemData={item}
-                      handleFieldChange={handleFieldChange}
-                      errorMessage={errorMessages[el.name]}
+                      fieldChangeValue={handleField}
+                      fieldError={errorMessages[el.name]}
+                      fieldLabel={el.label}
+                      fieldMd={el.fieldMd}
+                      fieldName={el.name}
+                      fieldOptions={el.options}
+                      fieldRequired={el.required}
+                      fieldValue={item[el.name]}
                     />
                     : el.type === 'serial' ?
                     <FieldSerial
@@ -103,7 +109,10 @@ function AuxItemModal({
                     errorMessage={errorMessages[el.name]}
                   />
                   }
-                  <Form.Text className="text-error">{errorMessages[el.name]}</Form.Text>
+                  <Form.Text className="text-error">{
+                  !['password', 'select'].includes(el.type) ?
+                  errorMessages[el.name] : ''
+                  }</Form.Text>
                   </Form.Group>
                   )
               )
