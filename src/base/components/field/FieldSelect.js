@@ -22,6 +22,7 @@ const FieldSelect = ({
         value={fieldValue}
         onChange={onChange}
         className={fieldError && "border-danger"}
+        key={fieldName}
       >
         <option key="empty" value=""></option>
         {

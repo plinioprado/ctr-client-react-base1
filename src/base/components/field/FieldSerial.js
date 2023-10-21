@@ -1,18 +1,24 @@
-import Form from 'react-bootstrap/Form';
+import { Col, Form } from 'react-bootstrap';
 
-const FieldSerial = ({
-    errorMessage,
-    handleFieldChange,
-    itemData,
-    itemFormat
+const FieldKeySerial = ({
+    fieldLabel,
+    fieldMd,
+    fieldName,
+    fieldValue
   }) => {
-  return (<Form.Control
-    disabled
-    type="text"
-    defaultValue={itemData.opNew ? 'Serial' : itemData[itemFormat.name]}
-    onChange={handleFieldChange}
-    className={errorMessage && "border-danger"}
-  />);
+
+  return (
+    <Form.Group as={Col} md={fieldMd} controlId={fieldName} key={fieldName}>
+      <Form.Label>{fieldLabel}</Form.Label>
+      <Form.Control
+        disabled
+        type="text"
+        defaultValue={fieldValue === 0 ? 'Serial' : fieldValue}
+        className="form-control"
+        key={fieldName}
+      />
+    </Form.Group>
+    );
 };
 
-export default FieldSerial;
+export default FieldKeySerial;
