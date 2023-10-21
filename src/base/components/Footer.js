@@ -1,4 +1,4 @@
-import { Container } from "react-bootstrap";
+import { Col, Container } from "react-bootstrap";
 import { useContext } from "react";
 
 import { BaseContext } from "../BaseContext";
@@ -10,7 +10,8 @@ function Footer() {
   return (
     <footer>
       <Container>
-        <div>{ shop.session && shop.session.user_name }</div>
+          <Col md={6}>{ shop.session && shop.session.user_name }</Col>
+          <Col md={6} style={{ textAlign: 'right'}}>{ shop.session && shop.session.tenant_name }</Col>
       </Container>
     </footer>
   )

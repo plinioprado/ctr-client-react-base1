@@ -51,12 +51,11 @@ function Login() {
 
   const handleSubmit = async (e) => {
       e.preventDefault();
-      const logged = await login(fields.email, fields.pass);
+      const logged = await login(fields.email, fields.pass, fields.tenant);
       if (logged) navigate('/');
     };
 
   const fieldChange = (name, value) => {
-      debugger
       setFields({
         ...fields,
         [name]: value
