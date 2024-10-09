@@ -1,0 +1,40 @@
+{
+  "cols": [
+    {
+      "header": "Date",
+      "type": "string"
+    },
+    {
+      "header": "num",
+      "type": "int"
+    },
+    {
+      "header": "descr",
+      "type": "string"
+    },
+    {
+      "header": "doc_type",
+      "type": "string"
+    },
+    {
+      "header": "doc_num",
+      "type": "int"
+    },
+    {
+      "header": "seq",
+      "type": "int"
+    },
+    {
+      "header": "Debit",
+      "type": "amount"
+    },
+    {
+      "header": "Credit",
+      "type": "amount"
+    },
+    {
+      "header": "Balance",
+      "type": "amount"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "cols": [
+    {
+      "header": "acc_num",
+      "type": "string"
+    },
+    {
+      "header": "acc_name",
+      "type": "string"
+    },
+    {
+      "header": "Debit",
+      "type": "amount"
+    },
+    {
+      "header": "Credit",
+      "type": "amount"
+    },
+    {
+      "header": "Balance",
+      "type": "amount"
+    }
+  ]
+}

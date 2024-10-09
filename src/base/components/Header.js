@@ -11,22 +11,13 @@ import { BaseContext } from "../BaseContext";
 
 function Header() {
 
-  const { session, logout, alertHide } = useContext(BaseContext);
+  const { session, alertHide } = useContext(BaseContext);
 
   const navigate = useNavigate();
 
   const handleMenu = e => {
     navigate(e.target.getAttribute('to'));
   }
-
-  const handleLogout = (e) => {
-    e.preventDefault();
-    logout();
-    navigate('/');
-  };
-
-  const access = session.auth_access && JSON.parse(session.auth_access);
-  const showOp = (table) => (session.user_role === 'super' || access[table])
 
   return (
     <header>
@@ -37,27 +28,23 @@ function Header() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             {
-              session.user_name &&
-                (
                 <>
+                  <NavDropdown title="Reports" id="basic-nav-dropdown">
+                    <NavDropdown.Item href="#" to="/report/chart_accounts" onClick={handleMenu}>Chart of accounts</NavDropdown.Item>
+                    <NavDropdown.Item href="#" to="/report/journal" onClick={handleMenu}>Journal</NavDropdown.Item>
+                    <NavDropdown.Item href="#" to="/report/general_ledger" onClick={handleMenu}>General ledger</NavDropdown.Item>
+                    <NavDropdown.Item href="#" to="/report/trial_balance" onClick={handleMenu}>Trial Balance</NavDropdown.Item>
+                  </NavDropdown>
                   <NavDropdown title="Admin" id="basic-nav-dropdown">
-                    {showOp('role') && <NavDropdown.Item href="#" to="/role" onClick={handleMenu}>Role</NavDropdown.Item>}
-                    {showOp('tenant') && <NavDropdown.Item href="#" to="/tenant" onClick={handleMenu}>Tenant</NavDropdown.Item>}
-                    {showOp('setting') && <NavDropdown.Item href="#" to="/setting" onClick={handleMenu}>Setting</NavDropdown.Item>}
-                    {showOp('user') && <NavDropdown.Item href="#" to="/user" onClick={handleMenu}>User</NavDropdown.Item>}
-                    {showOp('country') && <NavDropdown.Item href="#" to="/country" onClick={handleMenu}>Country</NavDropdown.Item>}
-                    {showOp('currency') && <NavDropdown.Item href="#" to="/currency" onClick={handleMenu}>Currency</NavDropdown.Item>}
+                    <NavDropdown.Item href="#" to="/role" onClick={handleMenu}>Role</NavDropdown.Item>
+                    <NavDropdown.Item href="#" to="/tenant" onClick={handleMenu}>Tenant</NavDropdown.Item>
+                    <NavDropdown.Item href="#" to="/setting" onClick={handleMenu}>Setting</NavDropdown.Item>
+                    <NavDropdown.Item href="#" to="/user" onClick={handleMenu}>User</NavDropdown.Item>
+                    <NavDropdown.Item href="#" to="/country" onClick={handleMenu}>Country</NavDropdown.Item>
+                    <NavDropdown.Item href="#" to="/currency" onClick={handleMenu}>Currency</NavDropdown.Item>
                     <NavDropdown.Item href="#" to="/session" onClick={handleMenu}>Session</NavDropdown.Item>
                   </NavDropdown>
-                <Nav.Link
-                  href="#"
-                  className='loginOption'
-                  onClick={handleLogout}
-                >
-                  {session.user_name && 'Logout'}
-                </Nav.Link>
                 </>
-                )
             }
 
           </Nav>

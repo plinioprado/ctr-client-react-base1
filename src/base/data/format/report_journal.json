@@ -1,0 +1,44 @@
+{
+  "cols": [
+    {
+      "header": "dt",
+      "type": "string"
+    },
+    {
+      "header": "num",
+      "type": "int"
+    },
+    {
+      "header": "descr",
+      "type": "string"
+    },
+    {
+      "header": "doc_type",
+      "type": "string"
+    },
+    {
+      "header": "doc_num",
+      "type": "int"
+    },
+    {
+      "header": "seq",
+      "type": "int"
+    },
+    {
+      "header": "acc_num",
+      "type": "string"
+    },
+    {
+      "header": "acc_name",
+      "type": "string"
+    },
+    {
+      "header": "val",
+      "type": "amount"
+    },
+    {
+      "header": "D/C",
+      "type": "string"
+    }
+  ]
+}

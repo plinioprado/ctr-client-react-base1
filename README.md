@@ -2,6 +2,14 @@
 
 Front-end application in React that provides a base for Business and Finance Applications. Coded from zero based on the features of ctr-client-react and focus on:
 
+## Run
+
+```shell
+npm start
+```
+
+## Scope
+
 * The latest technologies and approaches.
 * A pair of components AuxList and AuxItem able to handle multiple auxiliary tables using data+format responses.
 
