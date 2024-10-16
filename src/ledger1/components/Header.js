@@ -29,6 +29,9 @@ function Header() {
           <Nav className="me-auto">
             {
                 <>
+                  <NavDropdown title="Ledger" id="basic-nav-dropdown">
+                    <NavDropdown.Item href="#" to="/ledger/accounts" onClick={handleMenu}>Accounts</NavDropdown.Item>
+                  </NavDropdown>
                   <NavDropdown title="Reports" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#" to="/report/chart_accounts" onClick={handleMenu}>Chart of accounts</NavDropdown.Item>
                     <NavDropdown.Item href="#" to="/report/journal" onClick={handleMenu}>Journal</NavDropdown.Item>
