@@ -149,7 +149,6 @@ main.login .container form {
 }
 
 .table-filter div {
-  width: 50%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -158,6 +157,7 @@ main.login .container form {
 .table-filter div span {
   margin-left: 0.5em;
   margin-right: 0.5em;
+  white-space: nowrap;
 }
 
 td.number {
