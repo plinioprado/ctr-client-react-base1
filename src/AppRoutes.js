@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
 
-import AuxList from './base/components/aux/AuxList';
-import Home from './base/components/Home';
-import Session from './base/components/Session';
-import Report from './base/components/report/Report';
+import AuxList from './ledger1/components/aux/AuxList';
+import Home from './ledger1/components/Home';
+import Session from './ledger1/components/Session';
+import Report from './ledger1/components/report/Report';
 
 function AppRoutes() {
 

@@ -64,14 +64,6 @@ function Report({ name }) {
                 <Table>
                     <thead>
                         <tr>
-                            {
-                                format &&
-                                format.cols.map((cell, key) => <td key={key} >
-                                        {cell.header}
-                                    </td>)
-                            }
-                        </tr>
-                        <tr>
                             <td colSpan={format.cols.length }>
                                 <ReportFilter
                                     filters={data.filters}
@@ -79,6 +71,14 @@ function Report({ name }) {
                                     handleRefresh={handleRefresh}
                                 />
                             </td>
+                        </tr>
+                        <tr>
+                            {
+                                format &&
+                                format.cols.map((cell, key) => <th key={key} >
+                                        {cell.header}
+                                    </th>)
+                            }
                         </tr>
                     </thead>
                     <tbody>
